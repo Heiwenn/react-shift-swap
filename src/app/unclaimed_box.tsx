@@ -1,6 +1,12 @@
+import Box from '@mui/material/Box';
+import DraftPost from './draft_post';
+
 export default function UnclaimedBox() {
 
     return (
-        <h1>UnclaimedBox</h1>
+        <Box>
+            <DraftPost/>
+        </Box>
+        
     )
 }
