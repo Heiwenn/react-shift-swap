@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import DraftPost from './draft_post';
+import UnclaimedPost from './unclaimed_post';
 
 export default function UnclaimedBox() {
 
@@ -10,6 +11,7 @@ export default function UnclaimedBox() {
             gridTemplateColumns="repeat(auto-fill, minmax(200px, 1fr))"
             gap={2}
         >
+            <UnclaimedPost/>
             <DraftPost/>
         </Box>
         
