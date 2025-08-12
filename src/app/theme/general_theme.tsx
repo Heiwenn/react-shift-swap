@@ -70,6 +70,15 @@ const generalTheme = createTheme({
         },
       },
     },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          '&.Mui-checked': {
+            color: colors.dark
+          }
+        }
+      },
+    },
   }
 });
 

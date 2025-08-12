@@ -1,23 +1,32 @@
-import Box from '@mui/material/Box';
 import { TextField, Typography, Button, Grid } from '@mui/material';
 import Paper from '@mui/material/Paper';
+import React from 'react';
+import { DSAKeyPairKeyObjectOptions } from 'node:crypto';
 
-export default function UnclaimedPost() {
+interface UnclaimedPostProps {
+    nameOfPostee: string;
+    date: string;
+    time: string;
+    code: string;
+}
+
+
+export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({ nameOfPostee, date, time, code }) => {
 
     return (
             <Paper>
                 <Grid container spacing={1}>
                     <Grid size={12}>
-                        <Typography>Name</Typography>
+                        <Typography>{nameOfPostee}</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography variant='body1'>Day</Typography>
+                        <Typography>{date}</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography>Time Range</Typography>
+                        <Typography>{time}</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField size="small"/>
+                        <TextField value={code} size="small" label="Employee Code"/>
                     </Grid>
                     <Grid size={6}>
                         <Button>Claim</Button>

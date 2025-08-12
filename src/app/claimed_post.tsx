@@ -20,7 +20,7 @@ export default function ClaimedPost() {
                         <Typography>Time Range</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField size="small"/>
+                        <TextField size="small" label="Manager Code"/>
                     </Grid>
                     <Grid size={6}>
                         <Button>Approve</Button>
