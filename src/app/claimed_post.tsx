@@ -7,9 +7,6 @@ export default function ClaimedPost() {
     return (
             <Paper>
                 <Grid container spacing={1}>
-                    <Grid size={12}>
-                        <h1>Claimed Post</h1>
-                    </Grid>
                     <Grid size={6}>
                         <Typography>Postee</Typography>
                     </Grid>
@@ -23,7 +20,7 @@ export default function ClaimedPost() {
                         <Typography>Time Range</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField/>
+                        <TextField size="small"/>
                     </Grid>
                     <Grid size={6}>
                         <Button>Approve</Button>

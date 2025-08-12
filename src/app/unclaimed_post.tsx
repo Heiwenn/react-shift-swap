@@ -8,19 +8,16 @@ export default function UnclaimedPost() {
             <Paper>
                 <Grid container spacing={1}>
                     <Grid size={12}>
-                        <h1>Unclaimed Post</h1>
-                    </Grid>
-                    <Grid size={12}>
                         <Typography>Name</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography>Day</Typography>
+                        <Typography variant='body1'>Day</Typography>
                     </Grid>
                     <Grid size={6}>
                         <Typography>Time Range</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField/>
+                        <TextField size="small"/>
                     </Grid>
                     <Grid size={6}>
                         <Button>Claim</Button>

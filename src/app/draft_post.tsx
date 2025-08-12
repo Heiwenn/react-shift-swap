@@ -12,9 +12,6 @@ export default function DraftPost() {
             <Paper>
                 <Grid container spacing={1}>
                     <Grid size={12}>
-                        <h1>DraftPost</h1>
-                    </Grid>
-                    <Grid size={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker/>
                         </LocalizationProvider>
@@ -30,10 +27,12 @@ export default function DraftPost() {
                         </LocalizationProvider>
                     </Grid>
                     <Grid size={8}>
-                        <TextField/>
+                        <TextField size="small"/>
                     </Grid>
                     <Grid size={4}>
                         <Checkbox/>
+                    </Grid>
+                    <Grid size={12}>
                         <Button>Post</Button>
                     </Grid>
                 </Grid>

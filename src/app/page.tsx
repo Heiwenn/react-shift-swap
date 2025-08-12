@@ -5,29 +5,23 @@ import UnclaimedBox from "./unclaimed_box";
 import StatBox from "./stat_box";
 import Box from '@mui/material/Box';
 
-import { ThemeProvider, createTheme, Typography, Divider } from "@mui/material";
+import { ThemeProvider, createTheme, Typography, Stack } from "@mui/material";
 
-const customTheme = createTheme({
-  typography: {
-      h1: {
-      }
-    },
-});
-
-
+import generalTheme from "./theme/general_theme";
 
 export default function Home() {
   return (
-    <ThemeProvider theme={customTheme}>
-      <Typography variant="h1">
+    <ThemeProvider theme={generalTheme}>
+      <Stack spacing={2} padding={2}>
+        <Typography variant="h1">
         SHIFT-SWAP
-      </Typography>
-      <Divider/>
-      <UnclaimedBox/>
-      <Divider/>
-      <ClaimedBox/>
-      <Divider/>
-      <StatBox/>
+        </Typography>
+        <UnclaimedBox/>
+        <ClaimedBox/>
+        <StatBox/>
+      </Stack>
+      
+      
     </ThemeProvider>
   );
 }
