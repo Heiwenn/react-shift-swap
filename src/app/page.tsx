@@ -26,6 +26,7 @@ export default function Home() {
       <UnclaimedBox/>
       <Divider/>
       <ClaimedBox/>
+      <Divider/>
       <StatBox/>
     </ThemeProvider>
   );
