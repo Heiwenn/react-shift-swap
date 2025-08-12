@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { TextField, Checkbox } from '@mui/material';
+import { TextField, Checkbox, Grid, Button } from '@mui/material';
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -9,19 +9,34 @@ import Paper from '@mui/material/Paper';
 export default function DraftPost() {
 
     return (
-        <Box>
             <Paper>
-                <h1>DraftPost</h1>
-                <TextField/>
-                <Checkbox/>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker/>
-                    <TimePicker/>
-                    <TimePicker/>
-                </LocalizationProvider>
+                <Grid container spacing={1}>
+                    <Grid size={12}>
+                        <h1>DraftPost</h1>
+                    </Grid>
+                    <Grid size={12}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker/>
+                        </LocalizationProvider>
+                    </Grid>
+                    <Grid size={6}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <TimePicker/>
+                        </LocalizationProvider>
+                    </Grid>
+                    <Grid size={6}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <TimePicker/>
+                        </LocalizationProvider>
+                    </Grid>
+                    <Grid size={8}>
+                        <TextField/>
+                    </Grid>
+                    <Grid size={4}>
+                        <Checkbox/>
+                        <Button>Post</Button>
+                    </Grid>
+                </Grid>
             </Paper>
-        </Box>
-        
-        
     )
 }
