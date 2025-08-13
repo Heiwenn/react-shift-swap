@@ -21,9 +21,9 @@ interface UnclaimedBoxProps {
 export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemove, onClaim}) => {
 
     // draft post user inputs
-    const [startTime, setStartTime] = useState<Dayjs | null>(dayjs());
-    const [endTime, setEndTime] = useState<Dayjs | null>(dayjs());
-    const [date, setDate] = useState<Dayjs | null>(dayjs());
+    const [startTime, setStartTime] = useState<Dayjs>(dayjs());
+    const [endTime, setEndTime] = useState<Dayjs>(dayjs());
+    const [date, setDate] = useState<Dayjs>(dayjs());
     const [employeeCode, setEmployeeCode] = useState<string>("");
     const [openShift, setOpenShift] = useState<boolean>(false);
 
@@ -42,6 +42,27 @@ export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemo
             approval: "",
         }
         onPost(post);
+    }
+
+    const dateChanged = (newValue : Dayjs | null) => {
+        if (newValue == null) {
+            return;
+        }
+        setDate(newValue);
+    }
+
+    const startTimeChanged = (newValue : Dayjs | null) => {
+        if (newValue == null) {
+            return;
+        }
+        setStartTime(newValue);
+    }
+
+    const endTimeChanged = (newValue : Dayjs | null) => {
+        if (newValue == null) {
+            return;
+        }
+        setEndTime(newValue);
     }
 
     return (
@@ -71,11 +92,11 @@ export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemo
                         checked={openShift} 
                         onChangeCheck={setOpenShift}
                         date={date}
-                        onChangeDate={setDate}
+                        onChangeDate={dateChanged}
                         startTime={startTime} 
-                        onChangeStartTime={setStartTime}
+                        onChangeStartTime={startTimeChanged}
                         endTime={endTime}
-                        onChangeEndTime={setEndTime}
+                        onChangeEndTime={endTimeChanged}
                         onPost={postClicked}
                     />
                 </Box>
