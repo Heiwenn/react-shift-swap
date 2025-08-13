@@ -12,9 +12,10 @@ interface DraftPostProps {
     endTime: Dayjs;
     code: string;
     checked: boolean;
+    onPost: () => void;
 }
 
-export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, code, checked }) => {
+export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, code, checked, onPost }) => {
 
     return (
             <Paper>
@@ -44,7 +45,11 @@ export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, 
                         />
                     </Grid>
                     <Grid size={6}>
-                        <Button>Post</Button>
+                        <Button
+                            onClick={onPost}
+                        >
+                            Post
+                        </Button>
                     </Grid>
                 </Grid>
             </Paper>

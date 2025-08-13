@@ -1,26 +1,36 @@
 import Box from '@mui/material/Box';
 import { TextField, Typography, Button, Grid } from '@mui/material';
 import Paper from '@mui/material/Paper';
+import React from 'react';
 
-export default function ClaimedPost() {
+interface ClaimedPostProps {
+    nameOfPostee: string;
+    nameOfClaimee: string;
+    date: string;
+    time: string;
+    code: string;
+}
+
+
+export const ClaimedPost: React.FC<ClaimedPostProps> = ({nameOfPostee, nameOfClaimee, date, time, code}) => {
 
     return (
             <Paper>
                 <Grid container spacing={1}>
                     <Grid size={6}>
-                        <Typography>Postee</Typography>
+                        <Typography>{nameOfPostee}</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography>Claimee</Typography>
+                        <Typography>{nameOfClaimee}</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography>Day</Typography>
+                        <Typography>{date}</Typography>
                     </Grid>
                     <Grid size={6}>
-                        <Typography>Time Range</Typography>
+                        <Typography>{time}</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField size="small" label="Manager Code"/>
+                        <TextField value={code} size="small" label="Manager Code"/>
                     </Grid>
                     <Grid size={6}>
                         <Button>Approve</Button>
