@@ -5,16 +5,38 @@ import { UnclaimedPost } from './unclaimed_post';
 import postTheme from './theme/post_theme';
 import dayjs, { Dayjs } from 'dayjs';
 import { Post } from './Post';
+import { useState } from 'react';
 
 
 interface UnclaimedBoxProps {
     posts: Post[];
-    onPost: () => void;
+    onPost: (value: Post) => void;
     onRemove: (id: number) => void;
     onClaim: (id: number) => void;
 }
 
 export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemove, onClaim}) => {
+
+    const [startTime, setStartTime] = useState<Dayjs | null>(dayjs());
+    const [endTime, setEndTime] = useState<Dayjs | null>(dayjs());
+    const [date, setDate] = useState<Dayjs | null>(dayjs());
+    const [employeeCode, setEmployeeCode] = useState<string>("");
+    const [openShift, setOpenShift] = useState<boolean>(false);
+
+    const postClicked = () => {
+        const post : Post = 
+        {
+            id: Date.now(), 
+            nameOfPostee: "", 
+            nameOfClaimee: "", 
+            codeOfPostee: employeeCode, 
+            codeOfClaimee: "", 
+            date: date.format('DD/MM/YYYY'),
+            time: `Time ${startTime.format('HH:mm')} to ${endTime.format('HH:mm')}`,
+            openShift: openShift,
+        }
+        onPost(post);
+    }
 
     return (
         <Paper>
@@ -33,12 +55,17 @@ export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemo
                         />
                     ))}
                     <DraftPost 
-                        code="" 
-                        checked={false} 
-                        date={dayjs()} 
-                        startTime={dayjs()} 
-                        endTime={dayjs()}
-                        onPost={onPost}
+                        code={employeeCode}
+                        onChangeCode={setEmployeeCode}
+                        checked={openShift} 
+                        onChangeCheck={setOpenShift}
+                        date={date}
+                        onChangeDate={setDate}
+                        startTime={startTime} 
+                        onChangeStartTime={setStartTime}
+                        endTime={endTime}
+                        onChangeEndTime={setEndTime}
+                        onPost={postClicked}
                     />
                 </Box>
             </ThemeProvider>

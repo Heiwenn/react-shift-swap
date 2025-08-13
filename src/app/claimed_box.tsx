@@ -7,7 +7,7 @@ interface ClaimedBoxProps {
     posts: Post[];
 }
 
-export const ClaimedBox: React.FX<ClaimedBoxProps> = ({posts}) => {
+export const ClaimedBox: React.FC<ClaimedBoxProps> = ({posts}) => {
 
     return (
         <Paper>

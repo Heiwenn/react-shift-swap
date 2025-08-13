@@ -7,13 +7,12 @@ interface UnclaimedPostProps {
     nameOfPostee: string;
     date: string;
     time: string;
-    code: string;
     onRemove?: () => void;
     onClaim?: () => void;
 }
 
 
-export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({nameOfPostee, date, time, code, onRemove, onClaim }) => {
+export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({nameOfPostee, date, time, onRemove, onClaim }) => {
 
     return (
             <Paper>
@@ -28,7 +27,7 @@ export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({nameOfPostee, date,
                         <Typography>{time}</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField value={code} size="small" label="Employee Code"/>
+                        <TextField value="" size="small" label="Employee Code"/>
                     </Grid>
                     <Grid size={6}>
                         <Button onClick={onClaim}>Claim</Button>
