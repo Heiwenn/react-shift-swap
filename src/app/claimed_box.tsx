@@ -2,7 +2,6 @@ import { ClaimedPost } from "./claimed_post"
 import { Box, ThemeProvider, Paper, Typography } from "@mui/material"
 import postTheme from "./theme/post_theme"
 import { Post } from "./Post"
-import { useState } from "react"
 
 interface ClaimedBoxProps {
     posts: Post[];
@@ -10,6 +9,9 @@ interface ClaimedBoxProps {
     onDeny: (id: number, employeeCode: string) => void;
 }
 
+/**
+ * Displays and organizes posts of claimed shifts
+ */
 export const ClaimedBox: React.FC<ClaimedBoxProps> = ({posts, onApprove, onDeny}) => {
 
 

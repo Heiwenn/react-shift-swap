@@ -3,6 +3,8 @@ import { TextField, Typography, Button, Grid } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import React, { useState } from 'react';
 
+
+
 interface ClaimedPostProps {
     nameOfPostee: string;
     nameOfClaimee: string;
@@ -12,8 +14,11 @@ interface ClaimedPostProps {
     onDeny: (value: string) => void;
 }
 
-
+/**
+ * Displays claimed shifts for manager approval
+ */
 export const ClaimedPost: React.FC<ClaimedPostProps> = ({nameOfPostee, nameOfClaimee, date, time, onApprove, onDeny}) => {
+    
 
     const [employeeCode, setEmployeeCode] = useState<string>("");
     
@@ -49,10 +54,10 @@ export const ClaimedPost: React.FC<ClaimedPostProps> = ({nameOfPostee, nameOfCla
                         />
                     </Grid>
                     <Grid size={6}>
-                        <Button onClick={approveClicked}>Approve</Button>
+                        <Button fullWidth onClick={approveClicked}>Approve</Button>
                     </Grid>
                     <Grid size={6}>
-                        <Button onClick={denyClicked}>Deny</Button>
+                        <Button fullWidth onClick={denyClicked}>Deny</Button>
                     </Grid>
                 </Grid>
             </Paper>

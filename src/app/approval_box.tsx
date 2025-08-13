@@ -7,6 +7,12 @@ interface ApprovalBoxProps {
     posts: Post[];
 }
 
+/**
+ * Displays and organizes approval posts
+ * 
+ * @param  posts the posts to be displayed in the approval box
+ * @returns 
+ */
 export const ApprovalBox: React.FC<ApprovalBoxProps> = ({posts}) => {
 
     return (

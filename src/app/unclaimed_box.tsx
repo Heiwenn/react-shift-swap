@@ -15,14 +15,19 @@ interface UnclaimedBoxProps {
     onClaim: (id: number, employeeCode: string) => void;
 }
 
+/**
+ * Displays and organizes posts for unclaimed shifts and the draft post
+ */
 export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemove, onClaim}) => {
 
+    // draft post user inputs
     const [startTime, setStartTime] = useState<Dayjs | null>(dayjs());
     const [endTime, setEndTime] = useState<Dayjs | null>(dayjs());
     const [date, setDate] = useState<Dayjs | null>(dayjs());
     const [employeeCode, setEmployeeCode] = useState<string>("");
     const [openShift, setOpenShift] = useState<boolean>(false);
 
+    // Create a post when clicked
     const postClicked = () => {
         const post : Post = 
         {

@@ -11,7 +11,9 @@ interface ApprovalPostProps {
     approval: string;
 }
 
-
+/**
+ * Displays a notice of a posted shifts approval
+ */
 export const ApprovalPost: React.FC<ApprovalPostProps> = ({nameOfPostee, nameOfClaimee, date, time, approval}) => {
 
     return (

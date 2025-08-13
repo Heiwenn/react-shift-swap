@@ -1,5 +1,7 @@
 
-
+/**
+ * Info about a post
+ */
 export interface Post {
     id: number;
     nameOfPostee: string;

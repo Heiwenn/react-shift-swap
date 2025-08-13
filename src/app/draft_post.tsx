@@ -20,6 +20,9 @@ interface DraftPostProps {
     onPost: () => void;
 }
 
+/**
+ * Allows the user input data about a shift and post it for others to interact with
+ */
 export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, code, checked, onPost, onChangeDate, onChangeCheck, onChangeCode, onChangeStartTime, onChangeEndTime }) => {
 
     return (
@@ -30,20 +33,23 @@ export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, 
                             <DatePicker 
                                 value={date}
                                 onChange={(newValue) => onChangeDate(newValue)}
+                                label="Day"
                             />
                         </LocalizationProvider>
                     </Grid>
-                    <Grid size={6}>
+                    <Grid size={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <TimePicker value={startTime}
-                                onChange={(newValue) => onChangeStartTime(newValue)}
+                            <TimePicker 
+                                value={startTime}
+                                label="Start"
                             />
                         </LocalizationProvider>
                     </Grid>
-                    <Grid size={6}>
+                    <Grid size={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <TimePicker value={endTime}
                                 onChange={(newValue) => onChangeEndTime(newValue)}
+                                label="End"
                             />
                         </LocalizationProvider>
                     </Grid>
@@ -63,6 +69,7 @@ export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, 
                     <Grid size={6}>
                         <Button
                             onClick={onPost}
+                            fullWidth 
                         >
                             Post
                         </Button>
