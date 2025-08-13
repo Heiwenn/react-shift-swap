@@ -14,6 +14,14 @@ const generalTheme = createTheme({
         fontFamily: '"Roboto", "Helvetica"',
         textAlign: 'center',
       },
+      h2: {
+        color: colors.primary,
+        fontSize: '4rem',
+        fontWeight: 700,
+        lineHeight: 1.2,
+        fontFamily: '"Roboto", "Helvetica"',
+        textAlign: 'left',
+      },
       body1: {
         color: colors.dark,
         fontSize: '1rem',

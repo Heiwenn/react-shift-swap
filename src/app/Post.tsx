@@ -9,4 +9,5 @@ export interface Post {
     date: string;
     time: string;
     openShift: boolean;
+    approval: string;
 }
