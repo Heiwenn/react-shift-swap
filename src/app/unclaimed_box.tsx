@@ -11,8 +11,8 @@ import { useState } from 'react';
 interface UnclaimedBoxProps {
     posts: Post[];
     onPost: (value: Post) => void;
-    onRemove: (id: number) => void;
-    onClaim: (id: number) => void;
+    onRemove: (id: number, employeeCode: string) => void;
+    onClaim: (id: number, employeeCode: string) => void;
 }
 
 export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemove, onClaim}) => {
@@ -38,6 +38,10 @@ export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemo
         onPost(post);
     }
 
+    const claimClicked = (id : number) => {
+
+    }
+
     return (
         <Paper>
             <ThemeProvider theme={postTheme}>
@@ -50,8 +54,8 @@ export const UnclaimedBox: React.FC<UnclaimedBoxProps> = ({posts, onPost, onRemo
                         <UnclaimedPost
                             key={post.id}
                             {...post}
-                            onRemove={() => onRemove(post.id)}
-                            onClaim={() => onClaim(post.id)}
+                            onRemove={(employeeCode) => onRemove(post.id, employeeCode)}
+                            onClaim={(employeeCode) => onClaim(post.id, employeeCode)}
                         />
                     ))}
                     <DraftPost 

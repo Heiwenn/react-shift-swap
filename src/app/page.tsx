@@ -25,7 +25,7 @@ export default function Home() {
   const newPost = (post: Post) => {
     const maybeEmployee = employees.find(employee => employee.code === post.codeOfPostee)
 
-    if (maybeEmployee === null) {
+    if (maybeEmployee == null) {
       alert('Invalid Code');
       return;
     }
@@ -44,13 +44,42 @@ export default function Home() {
     setUnclaimedPosts(prev => [...prev, post]);
   };
 
-  const postClaimed = (id : number) => {
+  const postClaimed = (id : number, employeeCode: string) => {
+    const maybeEmployee = employees.find(employee => employee.code === employeeCode)
+
+    if (maybeEmployee == null) {
+      alert('Invalid Code');
+      return;
+    } 
+    const employee : Employee = maybeEmployee as Employee;
     const post : Post = unclaimedPosts.find(post => post.id === id)!;
+
+    post.nameOfClaimee = employee.name;
+    post.codeOfClaimee = employee.code;
+
     setClaimedPosts(prev => [...prev, post]);
     removePost(id);
   };
 
-  const removePost = (id: number) => {
+  const postRemoved = (id : number, employeeCode: string) => {
+    const maybeEmployee = employees.find(employee => employee.code === employeeCode)
+
+    if (maybeEmployee == null) {
+      alert('Invalid Code');
+      return;
+    } 
+    const employee : Employee = maybeEmployee as Employee;
+    const post : Post = unclaimedPosts.find(post => post.id === id)!;
+
+    if (post.codeOfPostee == employeeCode || employee.manager) {
+      removePost(id);
+    } else {
+      alert('You do not have the rights to remove this post');
+    }
+
+  }
+
+  const removePost = (id : number) => {
     setUnclaimedPosts(prev => prev.filter(post => post.id !== id));
   };
 
@@ -63,7 +92,7 @@ export default function Home() {
         <UnclaimedBox
           posts={unclaimedPosts}
           onPost={newPost}
-          onRemove={removePost}
+          onRemove={postRemoved}
           onClaim={postClaimed}
         />
         <ClaimedBox

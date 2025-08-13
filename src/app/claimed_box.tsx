@@ -23,7 +23,6 @@ export const ClaimedBox: React.FC<ClaimedBoxProps> = ({posts}) => {
                             {...post}
                         />
                     ))}
-                    <ClaimedPost nameOfPostee="Postee" nameOfClaimee="Claimee" code="" date="date" time="time"/>
                 </Box>
             </ThemeProvider>
         </Paper>

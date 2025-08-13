@@ -1,18 +1,29 @@
 import { TextField, Typography, Button, Grid } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import React from 'react';
+import React, { useState } from 'react';
 import { DSAKeyPairKeyObjectOptions } from 'node:crypto';
 
 interface UnclaimedPostProps {
     nameOfPostee: string;
     date: string;
     time: string;
-    onRemove?: () => void;
-    onClaim?: () => void;
+    onRemove: (value: string) => void;
+    onClaim: (value: string) => void;
 }
 
 
 export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({nameOfPostee, date, time, onRemove, onClaim }) => {
+
+    const [employeeCode, setEmployeeCode] = useState<string>("");
+
+    const claimClicked = () => {
+        onClaim(employeeCode);
+    }
+
+    const removeClicked = () => {
+        onRemove(employeeCode);
+    }
+
 
     return (
             <Paper>
@@ -27,13 +38,18 @@ export const UnclaimedPost: React.FC<UnclaimedPostProps> = ({nameOfPostee, date,
                         <Typography>{time}</Typography>
                     </Grid>
                     <Grid size={12}>
-                        <TextField value="" size="small" label="Employee Code"/>
+                        <TextField 
+                            value={employeeCode} 
+                            size="small" 
+                            label="Employee Code"
+                            onChange={(e) => setEmployeeCode(e.target.value)}
+                        />
                     </Grid>
                     <Grid size={6}>
-                        <Button onClick={onClaim}>Claim</Button>
+                        <Button onClick={claimClicked}>Claim</Button>
                     </Grid>
                     <Grid size={6}>
-                        <Button onClick={onRemove}>Remove</Button>
+                        <Button onClick={removeClicked}>Remove</Button>
                     </Grid>
                 </Grid>
             </Paper>

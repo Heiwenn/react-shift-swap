@@ -8,7 +8,6 @@ interface ClaimedPostProps {
     nameOfClaimee: string;
     date: string;
     time: string;
-    code: string;
 }
 
 
