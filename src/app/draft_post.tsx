@@ -41,6 +41,7 @@ export const DraftPost: React.FC<DraftPostProps> = ({ date, startTime, endTime, 
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <TimePicker 
                                 value={startTime}
+                                onChange={(newValue) => onChangeStartTime(newValue)}
                                 label="Start"
                             />
                         </LocalizationProvider>
