@@ -78,7 +78,7 @@ export default function Home() {
     // Change employee stats to reflect post
     setEmployees(prevEmployees =>
       prevEmployees.map(emp => {
-        if (emp.name === employee.name) {
+        if (emp.name === post.nameOfPostee) {
           return {
             ...emp,
             dataset: emp.dataset.map(monthData => {
