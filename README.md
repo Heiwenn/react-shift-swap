@@ -107,6 +107,11 @@ Next.js (React)
 ```
 ## Demo
 
+
+https://github.com/user-attachments/assets/68a8bd86-cdb4-49c6-954e-584e64b35165
+
+
+
 ## Future Development
 1. Persistent Data
 
@@ -123,3 +128,4 @@ For questions or feedback regarding this project, feel free to reach out:
 **Name:** Lucas Polanco
 
 **Email:** lucaspolanc0@vt.edu
+
